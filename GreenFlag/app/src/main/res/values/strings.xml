@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">GreenFlag</string>
+
+    <string name="desc">GreenFlag customers can create an account to access</string>
+
+    <string name="car">Car health updates</string>
+    <string name="req">Request a rescue online</string>
+    <string name="policy">Policy information</string>
+    <string name="create">Create an account</string>
+
+    <string name="email">Email Address</string>
+    <string name="pass">Create password</string>
+    <string name="rePass">Repeat password</string>
+
+    <string name="criteria">See criteria below</string>
+    <string name="passCriteria">Your password should have a minimum of 8 characters and contain at least one number, one upper case and one lower case letter. You can use special characters</string>
+
+    <string name="next">Next</string>
+</resources>
