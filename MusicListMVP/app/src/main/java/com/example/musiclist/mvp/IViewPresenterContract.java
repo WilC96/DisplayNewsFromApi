@@ -1,8 +1,6 @@
 package com.example.musiclist.mvp;
 
-import com.example.musiclist.model.MusicModel;
-
-import java.util.List;
+import com.example.musiclist.model.MusicResult;
 
 public interface IViewPresenterContract {
 
@@ -16,6 +14,6 @@ public interface IViewPresenterContract {
 
     interface IView extends IBaseView<IPresenter> {
         // calls that the presenter can call
-        void passDataAdapter(MusicModel music);
+        void passDataAdapter(MusicResult music);
     }
 }
