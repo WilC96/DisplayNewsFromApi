@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.musiclist.R;
 import com.example.musiclist.model.MusicModel;
+import com.example.musiclist.model.MusicResult;
 import com.example.musiclist.util.IItemClickListener;
 
 import java.util.List;
@@ -24,8 +25,8 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder> 
     private Context mContext;
     public String price;
 
-    public MusicAdapter(List<MusicModel> musicList, int rowLayout, Context mContext) {
-        this.musicList = musicList;
+    public MusicAdapter(MusicResult musicList, int rowLayout, Context mContext) {
+        this.musicList = musicList.getResults();
         this.rowLayout = rowLayout;
         this.mContext = mContext;
     }
@@ -40,7 +41,7 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder> 
     public void onBindViewHolder(ViewHolder holder, int position) {
         final MusicModel mm = musicList.get(position);
 
-        price = Double.toString(mm.getTrackPrice());
+        price = mm.getTrackPrice() <= 0 ? "Free" : Double.toString(mm.getTrackPrice());
 
         holder.trackName.setText(mm.getTrackName());
         holder.artistName.setText(mm.getArtistName());
@@ -62,7 +63,6 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder> 
     public int getItemCount() {
         return musicList == null ? 0 : musicList.size();
     }
-
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
 

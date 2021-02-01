@@ -54,8 +54,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onNext(@NonNull MusicResult musicResult) {
                         if (rView != null) {
-                            List<MusicModel> musicModelList = musicResult.getResults();
-                            mAdapt = new MusicAdapter(musicModelList, R.layout.music_row, getApplicationContext());
+                            mAdapt = new MusicAdapter(musicResult, R.layout.music_row, getApplicationContext());
                             rView.setAdapter(mAdapt);
                             hidePDialog();
                         }
