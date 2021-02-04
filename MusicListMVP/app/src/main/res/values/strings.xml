@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">MusicList</string>
-
-    <string name="welcome">Here is a list of classic music...</string>
-    <string name="show">Show me</string>
-
-</resources>
