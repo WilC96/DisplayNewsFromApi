@@ -8,11 +8,12 @@ interface IViewPresenterShowListContract {
     // presenter and view
     interface IPresenter : IBasePresenter {
         // calls that the view can call
-        fun retrieveIntentData()
+        fun displayMusicChart(btn: Button)
     }
 
     interface IView : IBaseView<IPresenter?> {
         // calls that the presenter can call
+        // go to next screen
         fun displayMusicChart(btn: Button)
     }
 }

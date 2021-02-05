@@ -21,10 +21,7 @@ class MusicAdapter(
     private var mContext: Context
 ): RecyclerView.Adapter<MusicAdapter.ViewHolder>() {
 
-
     private var musicList: List<MusicModel> = musicResult.results
-
-    private var price: String? = null;
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v =
@@ -35,12 +32,13 @@ class MusicAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val mm: MusicModel = musicList[position]
 
-        price =
-            if (mm.trackPrice!! <= 0) "Free" else mm.trackPrice.toString()
+        if (mm.trackName.isNullOrBlank()) holder.trackName.text = "Unavailable"
+        else holder.trackName.text = mm.trackName
 
-        holder.trackName.text = mm.trackName
+        if (mm.trackPrice!! <= 0) holder.trackPrice.text = "Free"
+        else holder.trackPrice.text = mm.trackPrice.toString()
+
         holder.artistName.text = mm.artistName
-        holder.trackPrice.text = price
 
         Glide.with(mContext)
             .load(mm.artworkUrl100)

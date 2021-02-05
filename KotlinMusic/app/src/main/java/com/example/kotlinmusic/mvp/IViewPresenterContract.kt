@@ -1,5 +1,6 @@
 package com.example.kotlinmusic.mvp
 
+import android.widget.Button
 import com.example.kotlinmusic.model.MusicResult
 
 interface IViewPresenterContract {
@@ -12,6 +13,8 @@ interface IViewPresenterContract {
     interface IView : IBaseView<IPresenter?> {
         // calls that the presenter can call
         fun passDataAdapter(music: MusicResult)
+
+        //fun displayMusicChart(btn: Button)
     }
 }
 /*
