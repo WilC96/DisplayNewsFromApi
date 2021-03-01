@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="article"
+            type="com.example.newsappmvvm.model.Article" />
+        <variable
+            name="clickCallback"
+            type="com.example.newsappmvvm.adapter.NewsClick" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/purple_500"
+        android:elevation="20dp"
+        android:padding="10dp"
+        app:cardCornerRadius="10dp"
+        android:onClick="@{() -> clickCallback.onClick(article)}">
+
+        <ImageView
+            android:id="@+id/image_view_article"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="8dp"
+            app:imageUrl="@{article.urlToImage}"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="170dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/text_view_article_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{article.title}"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/text_view_article_author"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{article.author}"
+                android:textColor="@color/black"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/text_view_flower_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{article.description}"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
